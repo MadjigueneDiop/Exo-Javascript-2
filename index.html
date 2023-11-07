@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+   
+     <title>Exo-Javascript2</title>
+ </head>
+ <body>
+     
+ 
+<div class="container">
+    <h2>Tableau de 20 personnes</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Note</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Ici, les données de 20 personnes seront insérées -->
+
+        </tbody>
+    </table>
+</div>
+<script>
+
+// Tableau de 20 personnes avec des données aléatoires
+    let personnes = [];
+    for (let i = 0; i < 20; i++) {
+        personnes.push({
+            prénom: 'Madjiguéne' + i,
+            nom: 'Diop' + i,
+            age:25+i,
+            note:20-i,
+            email: 'madjiguened' + i + '@gmail.com'
+        });
+    }
+
+    let tableBody = document.getElementById('tableBody');
+    let tableContent = '';
+    let maxNote = personnes[0].note;
+    let minNote = personnes[0].note;
+
+    personnes.forEach(personne => {
+        tableContent += '<tr>';
+        tableContent += '<td>' + personne.prénom + '</td>';
+        tableContent += '<td>' + personne.nom + '</td>';
+        tableContent += '<td>' + personne.age + '</td>';
+        tableContent += '<td>' + personne.note + '</td>';
+        tableContent += '<td>' + personne.email + '</td>';
+        tableContent += '</tr>';
+// la plus grande note et la plus petite
+        if (personne.note > maxNote) {
+            maxNote = personne.note;
+        }
+
+        if (personne.note < minNote) {
+            minNote = personne.note;
+        }
+    });
+    tableBody.innerHTML = tableContent;
+    document.write("La personne qui la plus grande note est :",+maxNote);
+    document.write("La plus petite note est :"+minNote);
+//l'age
+if (personne.age > maxAge) {
+            maxAge = personne.age;
+        }
+
+        if (personne.age < minAge) {
+            minAge = personne.age;
+        }
+    ;
+    tableBody.innerHTML = tableContent;
+    document.write("La personne la plus âgée  " + maxAge );
+    document.write("La personne la moins âgée  " + minAge);
+
+</script>
+</body>
+</html>
