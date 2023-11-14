@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
  <html lang="en">
  <head>
     <meta charset="UTF-8">
@@ -9,12 +9,10 @@
    
      <title>Exo-Javascript2</title>
  </head>
- <body>
-     
- 
+ <body> 
 <div class="container">
     <h2>Tableau de 20 personnes</h2>
-    <table class="table table-bordered">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Prénom</th>
@@ -25,7 +23,7 @@
             </tr>
         </thead>
         <tbody id="tableBody">
-            <!-- Ici, les données de 20 personnes seront insérées -->
+             Ici, les données de 20 personnes seront insérées 
 
         </tbody>
     </table>
@@ -83,5 +81,87 @@ if (personne.age > maxAge) {
     document.write("La personne la moins âgée  " + minAge);
 
 </script>
+</body>
+<!-- </html> -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Liste des Personnes</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Âge</th>
+                <th>Note</th>
+                <th>Adresse Email</th>
+            </tr>
+        </thead>
+        <tbody id="Tableau">
+        </tbody>
+    </table>
+</div>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <p id="demo3"></p>
+        <p id="demo4"></p>
+
+
+<script>
+    // Création des données de personnes
+    var personnes = [];
+        for(i=0;i<20;i++){
+        personnes.push({
+            prénom: 'Madjiguéne' + i,
+            nom: 'Diop' + i,
+            age:21+i,
+            note:20-i,
+            email: 'madjiguened' + i + '@gmail.com'
+
+        })
+    };
+
+
+    // Remplissage du tableau Bootstrap
+    const Tableau = document.getElementById("Tableau");
+    personnes.forEach(personne => {
+        const row = Tableau.insertRow();
+        row.innerHTML = `
+            <td>${personne.prénom}</td>
+            <td>${personne.nom}</td>
+            <td>${personne.age}</td>
+            <td>${personne.note}</td>
+            <td>${personne.email}</td>
+        `;
+    });
+
+    // Trouver la personne avec la plus grande et la plus petite note
+    document.getElementById("demo1").innerHTML ="la plus grande note est :"+ Math.max(20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1);
+    document.getElementById("demo2").innerHTML = "la plus petite note est :"+ Math.min(20,19,18,17,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1);
+
+
+    // Trouver la personne la plus âgée et  la moyenne d'âge
+    document.getElementById("demo3").innerHTML = "la plus grande note :"+ Math.max(21,22,23,24,25,26,27,28,29,30,31,32,33,34,34,35,36,37,38,39,40);
+    document.getElementById("demo4").innerHTML ="la moyenne âgée:"+ Math.min(21,22,23,24,25,26,27,28,29,30,31,32,33,34,34,35,36,37,38,39,40);
+
+    // Afficher les résultats
+    // console.log("Personne avec la plus grande note :", maxNotePersonne);
+    // console.log("Personne avec la plus petite note :", minNotePersonne);
+    // console.log("Personne la plus âgée :", maxAgePersonne);
+    // console.log("Moyenne d'âge :", moyenneAge);
+
+
+
+
+</script>
+
 </body>
 </html>
